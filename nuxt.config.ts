@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     // https://content.nuxtjs.org/api/configuration
   },
   app: {
+    pageTransition: { name: 'test', mode: 'out-in' },
     head: {
       charset: 'utf-8',
       viewport: 'width=device-width, initial-scale=1',
