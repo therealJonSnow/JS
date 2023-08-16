@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-import gsap from 'gsap'
-import DrawSVGPlugin from 'gsap/DrawSVGPlugin'
+import { gsap } from "gsap/dist/gsap";
+import DrawSVGPlugin from 'gsap/dist/DrawSVGPlugin'
 import { Elastic, Power2 } from 'gsap';
 gsap.registerPlugin(DrawSVGPlugin)
 
