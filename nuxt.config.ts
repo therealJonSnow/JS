@@ -1,4 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import tailwindTypography from '@tailwindcss/typography';
+
 export default defineNuxtConfig({
   ssr: true,
   modules: [
@@ -15,5 +17,10 @@ export default defineNuxtConfig({
       viewport: 'width=device-width, initial-scale=1',
     }
   },
-  devtools: { enabled: true }
+  devtools: { enabled: true },
+  tailwindcss: {
+    config: {
+      plugins: [tailwindTypography],
+    }
+  }
 })

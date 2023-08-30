@@ -6,7 +6,7 @@
     @mouseenter="(e) => onMouseEnterHandler(e)"
   >
     <div
-      class="wrapper opacity-0"
+      class="wrapper opacity-0 flex flex-col"
       ref="wrapper"
     >
       <slot />
@@ -49,7 +49,6 @@ onMounted(() => {
   mouse.value.setOrigin(wrapper.value);
   counter.value = 0;
   updateRate.value = 1;
-  console.log('init', page.value, wrapper.value)
 
   gsap.fromTo(wrapper.value, { z:-30}, {duration: 2, z: 0, ease: Elastic.easeOut.config(1, 0.7)})
   gsap.fromTo(wrapper.value, { opacity: 0}, {duration: 0.7, opacity: 1})
@@ -65,7 +64,7 @@ function updateBoxStyle(x, y) {
   }
 }
 function update(event) {
-  mouse.value.updatePosition(event);
+  mouse.value?.updatePosition(event);
   updateBoxStyle(
     (
       -(event.clientY - mouse.value._y) /
@@ -88,29 +87,24 @@ function onMouseMoveHandler(event) {
     update(event);
   }
 }
-
-
-
-
-
 </script>
 
 <style>
 .page {
   perspective: 100px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  min-height: 100vh;
   position: relative;
   width: 100%;
   cursor: none;
-  height: 100%;
 }
 
 .wrapper {
-  overflow: hidden;
+  /* overflow: hidden; */
+  min-height: 100vh;
   position: relative;
   width: 100%;
   cursor: none;
-  height: 100%;
   padding: 4rem;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <svg @mouseenter="mouseEnter" @mouseleave="mouseLeave" viewBox="-40 0 450 708" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg @mouseenter="mouseEnter" @mouseleave="mouseLeave" viewBox="-40 -10 450 728" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path
       ref="red"
       d="M15.7729 624.025C58.4275 697.905 152.897 723.218 226.777 680.564C300.657 637.909 325.971 543.439 283.316 469.559L17.3298 8.85791M381.045 85.291C338.391 11.411 243.92 -13.9021 170.041 28.7526C96.1606 71.4072 70.8474 165.877 113.502 239.757L302.79 567.616"

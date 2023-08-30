@@ -6,8 +6,6 @@
 const props = defineProps(['dotColor'])
 const canvas = ref(null)
 onMounted(() => {
-  
-  console.log(props)
   setTimeout(() => {
   // console.log(
   //     '+-+-+-+-+-+-+-+ +-+-+-+ +-+ +-+-+-+-+-+-+-+-+-+-+\n' +
@@ -21,7 +19,8 @@ onMounted(() => {
     const ctx = c.getContext('2d');
 
     // Variables
-    let [cw, ch] = [window.innerWidth, window.innerHeight];
+    console.log(document.querySelector('.page').scrollHeight)
+    let [cw, ch] = [window.innerWidth, document.querySelector('.page').scrollHeight];
     let [lastX, lastY] = [null, null];
     let dots = [];
     let resizeTimer;
@@ -93,7 +92,7 @@ onMounted(() => {
       if (lastX && lastY) {
         // Get proximity
         let dX = this.x - lastX;
-        let dY = this.y - lastY;
+        let dY = this.y + window.scrollY - lastY;
         dist = Math.sqrt(Math.pow(dX, 2) + Math.pow(dY, 2));
 
         // Update dot radius
@@ -169,7 +168,7 @@ onMounted(() => {
     // Update the size of the canvas
     function resizeCanvas() {
       // console.log(window)
-      [cw, ch] = [window.innerWidth, window.innerHeight];
+      [cw, ch] = [window.innerWidth, document.querySelector('.page').scrollHeight];
       
       // Update canvas size
       [c.width, c.height] = [cw, ch];
@@ -215,6 +214,13 @@ onMounted(() => {
     // Initialize the fun
     resizeCanvas();
     init();
+    const route = useRoute();
+
+    watch(route, value => {
+      setTimeout(() => {
+        resizeCanvas()
+      }, 1);
+    }, {deep: true, immediate: true})
 
   }, 1) // 1 seems to work better for me than 0
 })

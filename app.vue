@@ -1,13 +1,8 @@
 <template>
-  <div class="relative h-screen w-screen overflow-y-auto ">
-    <ParallaxCard>
-      <NuxtPage :key="$route.fullPath"/>
-      <TheDots dot-color="blue" class="translate-x-[0.5px] translate-y-[0.5px] mix-blend-multiply" />
-      <TheDots dot-color="red" class="-translate-x-[0.5px]  -translate-y-[0.5px] mix-blend-multiply"/>
-      <div class="box">
-      </div>
-
-    </ParallaxCard>
+  <div class="relative h-screen w-screen overflow-y-auto overflow-x-hidden">
+    <NuxtPage :key="$route.fullPath"/>
+    <TheDots dot-color="blue" class="translate-x-[0.5px] translate-y-[0.5px] mix-blend-multiply" />
+    <TheDots dot-color="red" class="-translate-x-[0.5px]  -translate-y-[0.5px] mix-blend-multiply"/>
   </div>
   <TheCursor />
 </template>
@@ -34,12 +29,15 @@ useHead({
   box-sizing: border-box;
 }
 body {
-  font-family: Padyakke Expanded One, Avenir, Helvetica, Arial, sans-serif;
-  font-weight: bold;
-  text-align: center;
+  font-family: Poppins, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
   height: 100vh;
   max-width: 100vw;
   overflow: hidden;
+}
+.title {
+  font-weight: bold;
+  font-family: Padyakke Expanded One, Avenir, Helvetica, Arial, sans-serif;
 }
 /* link styles */
 a {
@@ -90,24 +88,22 @@ a:after {
   opacity: 0;
 }
 
-
-
 .box {
   pointer-events: none;
   overflow: hidden;
   position: fixed;
   padding: 1.5rem;
   width: 100vw;
-  height: 100vh;
   top: 0;
   left: 0;
+  bottom: 0
 }
 .box:after,
 .box:before {
   content: "";
   position: absolute;
-  width: calc(100vw - 4rem);
-  height: calc(100vh - 4rem);
+  width: calc(100% - 4rem);
+  height: calc(100% - 4rem);
   top: 50%;
   left: 50%;
   mix-blend-mode: multiply;
@@ -120,5 +116,4 @@ a:after {
   border: 6px solid var(--secondary);
   translate: calc(-50% - 1.5px) calc(-50% - 1.5px);
 }
-
 </style>

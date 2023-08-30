@@ -17,7 +17,7 @@ onMounted(() => {
   const OPTIONS = {
     SPACING: 1,
     SIZE: 0.25,
-    TEXT: "A Pen by Jon Snow • "
+    TEXT: "A Site by Jon Snow • "
   };
 
   const onUpdate = () => {
@@ -136,8 +136,8 @@ section:first-of-type {
   justify-content: center;
   place-items: center;
   position: fixed;
-  bottom: 3rem;
-  right: 3rem;
+  bottom: 4rem;
+  right: 4rem;
   width: 6rem;
 }
 
